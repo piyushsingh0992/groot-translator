@@ -5,10 +5,14 @@ function clickHandler(){
     fetch(url).then(response=>response.json()).then(json=>{
         outputarea.innerText=json.contents.translated;
 
-    })
-
-
+    }).catch(errorHandler)
 }
+
+function errorHandler(error) {
+    console.log('error is', error);
+    alert('Limit Reached');   
+}
+
 
 var heading=document.querySelector('h1');
 var inputarea=document.querySelector('#input');
